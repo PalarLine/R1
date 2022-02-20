@@ -43,35 +43,35 @@ const app = createApp ({
 
         sumAttracted1() {
 
-            return this.getAttraction(this.dateStart1, this.dateEnd1, this.ovdpList);
+            return this.getAttraction(this.dateStart1, this.dateEnd1);
         },
 
         sumReturn1() {
 
-            return this.returnAttraction(this.dateStart1, this.dateEnd1, this.ovdpList);
+            return this.returnAttraction(this.dateStart1, this.dateEnd1);
         },
 
         sumAttracted2() {
 
-            return this.getAttraction(this.dateStart2, this.dateEnd2, this.ovdpList);
+            return this.getAttraction(this.dateStart2, this.dateEnd2);
         },
 
         sumReturn2() {
 
-            return this.returnAttraction(this.dateStart2, this.dateEnd2, this.ovdpList);
+            return this.returnAttraction(this.dateStart2, this.dateEnd2);
         },  
     },
 
     methods: {
         
-        getAttraction(data1, data2, arr) {
+        getAttraction(data1, data2) {
 
-            return  arr.filter(item => (item.paydate >= data1) && (item.paydate <= data2)).reduce((acc, item) => acc + Math.round(item.attraction), 0);               
+            return  this.ovdpList.filter(item => (item.paydate >= data1) && (item.paydate <= data2)).reduce((acc, item) => acc + Math.round(item.attraction), 0);               
         },
 
-        returnAttraction(data1, data2, arr) {
+        returnAttraction(data1, data2) {
             
-            return  arr.filter(item => (item.repaydate >= data1) && (item.repaydate <= data2)).reduce((acc, item) => acc + Math.round(item.attraction), 0);            
+            return  this.ovdpList.filter(item => (item.repaydate >= data1) && (item.repaydate <= data2)).reduce((acc, item) => acc + Math.round(item.attraction), 0);            
         },
     },
 
